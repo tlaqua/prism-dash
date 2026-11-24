@@ -7,7 +7,7 @@
   <style>
     :root {
       --bg: #080518;
-      --panel: rgba(16, 12, 38, 0.88);
+      --panel: rgba(16, 12, 38, 0.9);
       --border: rgba(255, 255, 255, 0.16);
       --text: #f8faff;
       --muted: #a6b0d6;
@@ -146,7 +146,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px;
+      padding: 14px;
       background: radial-gradient(circle at center, rgba(16, 10, 44, 0.55), rgba(6, 4, 18, 0.85));
       backdrop-filter: blur(6px);
       z-index: 10;
@@ -158,11 +158,11 @@
 
     .card {
       width: 100%;
-      max-width: 860px;
+      max-width: 960px;
       background: var(--panel);
       border: 1.5px solid var(--border);
       border-radius: 22px;
-      padding: 26px 28px;
+      padding: 22px 24px;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65), 0 0 40px rgba(0, 245, 212, 0.12);
     }
 
@@ -172,12 +172,12 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(28px, 4.4vw, 44px);
+      font-size: clamp(26px, 4vw, 40px);
       font-weight: 900;
       letter-spacing: 2px;
       background: linear-gradient(90deg, #00f5d4, #00bbf9, #ff4ecd, #fee440);
@@ -196,19 +196,35 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .levels-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+      max-height: 48vh;
+      overflow-y: auto;
+      padding: 4px 8px 4px 2px;
+    }
+
+    .levels-grid::-webkit-scrollbar {
+      width: 7px;
+    }
+    .levels-grid::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 999px;
+    }
+    .levels-grid::-webkit-scrollbar-thumb {
+      background: rgba(0, 245, 212, 0.35);
+      border-radius: 999px;
     }
 
     .level-card {
       position: relative;
-      border-radius: 16px;
-      padding: 16px;
+      border-radius: 14px;
+      padding: 13px 14px;
       border: 2px solid rgba(255, 255, 255, 0.14);
       background: rgba(255, 255, 255, 0.04);
       cursor: pointer;
@@ -217,41 +233,54 @@
     }
 
     .level-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: rgba(255, 255, 255, 0.4);
     }
 
     .level-card.selected {
       border-color: var(--accent);
-      background: rgba(0, 245, 212, 0.08);
-      box-shadow: 0 0 24px rgba(0, 245, 212, 0.22);
+      background: rgba(0, 245, 212, 0.09);
+      box-shadow: 0 0 22px rgba(0, 245, 212, 0.24);
+    }
+
+    .level-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .level-num {
+      font-size: 11px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .level-badge {
       display: inline-block;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
-      letter-spacing: 0.8px;
-      padding: 3px 9px;
+      letter-spacing: 0.6px;
+      padding: 2px 8px;
       border-radius: 999px;
-      margin-bottom: 8px;
       text-transform: uppercase;
     }
 
     .level-name {
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .level-meta {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .mini-bar {
-      height: 8px;
+      height: 7px;
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.45);
       overflow: hidden;
@@ -266,7 +295,7 @@
     .level-best {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #dbe4ff;
     }
@@ -277,7 +306,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      padding-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -299,9 +328,9 @@
     .btn {
       border: none;
       border-radius: 12px;
-      padding: 11px 18px;
+      padding: 10px 16px;
       font-weight: 800;
-      font-size: 14px;
+      font-size: 13.5px;
       cursor: pointer;
       color: #fff;
       background: rgba(255, 255, 255, 0.12);
@@ -315,7 +344,7 @@
     }
 
     .btn-play {
-      padding: 14px 34px;
+      padding: 13px 32px;
       font-size: 18px;
       letter-spacing: 1px;
       color: #050816;
@@ -325,7 +354,7 @@
     }
 
     .controls-hint {
-      margin-top: 14px;
+      margin-top: 12px;
       text-align: center;
       font-size: 12px;
       color: var(--muted);
@@ -343,7 +372,7 @@
     }
 
     .modal-card {
-      max-width: 460px;
+      max-width: 480px;
       text-align: center;
     }
 
@@ -389,7 +418,7 @@
       <div class="title-row">
         <div>
           <h1>PRISM DASH</h1>
-          <div class="subtitle">Colorful Rhythm Platformer • Built for Cloudflare Workers</div>
+          <div class="subtitle" id="menuSubtitle">12 Colorful Levels • Cleared: 0 / 12 ★</div>
         </div>
         <div class="top-actions">
           <button class="btn" id="btnMenuPractice">◆ Practice: OFF</button>
@@ -514,7 +543,6 @@
         master.gain.value = save.muted ? 0 : 0.38;
         master.connect(ctx.destination);
 
-        // White noise buffer for snares/hats/crashes
         const len = ctx.sampleRate * 0.4;
         noiseBuffer = ctx.createBuffer(1, len, ctx.sampleRate);
         const data = noiseBuffer.getChannelData(0);
@@ -666,18 +694,15 @@
       const chordBar = Math.floor(stepIndex / 16) % song.chords.length;
       const root = song.chords[chordBar];
 
-      // Drums
       if (barStep % 4 === 0) kick(when);
       if (barStep === 4 || barStep === 12) snare(when);
       if (barStep % 2 === 1) hat(when);
 
-      // Driving off-beat / 8th bass
       if (barStep % 2 === 0) {
         const oct = barStep % 4 === 2 ? 12 : 0;
         synthNote(when, midiToFreq(root - 24 + oct), 0.14, "sawtooth", 0.22, 950);
       }
 
-      // Colorful lead arp
       const arpPattern = song.arp[barStep];
       if (arpPattern !== null) {
         const semi = song.scale[arpPattern % song.scale.length];
@@ -691,7 +716,6 @@
   // =========================================================================
   // LEVEL BUILDER HELPERS
   // =========================================================================
-  // row = 0 sits directly on GROUND_Y. y = GROUND_Y - (row + 1) * TILE
   function rowToY(row) {
     return GROUND_Y - (row + 1) * TILE;
   }
@@ -739,10 +763,10 @@
   }
 
   // =========================================================================
-  // 3 HAND-CRAFTED COLORFUL LEVELS
+  // 12 HAND-CRAFTED COLORFUL LEVELS
   // =========================================================================
   function buildLevels() {
-    // --- LEVEL 1: NEON STEREO (Normal, 128 BPM) ---
+    // --- 1: NEON STEREO (Normal, 128 BPM) ---
     const l1 = makeLevelBuilder();
     l1.spike(16);
     l1.spikes(24, 2);
@@ -751,29 +775,21 @@
     l1.block(45, 0, 2, 1);
     l1.block(50, 1, 2, 1);
     l1.spikes(56, 2);
-
-    // Staircase groove
     l1.block(64, 0, 3, 1);
     l1.block(70, 1, 3, 1);
     l1.block(76, 2, 4, 1);
     l1.spikes(82, 2);
-
-    // Bounce pad launch onto elevated skyway
     l1.pad(89, 0);
     l1.spikes(91, 3);
     l1.block(94, 2, 7, 1);
     l1.spike(98, 3);
     l1.block(104, 1, 4, 1);
     l1.spikes(110, 2);
-
-    // Orb jump over pit
     l1.spikes(117, 4);
     l1.orb(119, 2);
     l1.block(123, 0, 3, 1);
 
-    // Ship Portal Section
     l1.portal(132, "ship");
-    // Ship pillars (generous 4-5 tile gaps)
     l1.block(140, 0, 2, 3);
     l1.block(150, 6, 2, 4);
     l1.block(160, 0, 2, 4);
@@ -784,7 +800,6 @@
     l1.block(201, 6, 2, 4);
     l1.block(211, 2, 2, 3);
 
-    // Back to Cube Finale
     l1.portal(222, "cube");
     l1.spike(232);
     l1.block(239, 0, 3, 1);
@@ -801,7 +816,7 @@
     l1.pad(292, 0);
     l1.spikes(294, 3);
 
-    // --- LEVEL 2: PRISM PULSE (Hard, 138 BPM) ---
+    // --- 2: PRISM PULSE (Hard, 138 BPM) ---
     const l2 = makeLevelBuilder();
     l2.spikes(15, 2);
     l2.block(22, 0, 2, 1);
@@ -814,8 +829,6 @@
     l2.spikes(44, 5);
     l2.block(49, 1, 4, 1);
     l2.spike(51, 2);
-
-    // Rhythmic hops
     l2.spikes(57, 2);
     l2.block(62, 0, 2, 1);
     l2.block(67, 1, 2, 1);
@@ -824,7 +837,6 @@
     l2.orb(78, 3);
     l2.block(82, 0, 3, 1);
 
-    // Ship 1
     l2.portal(90, "ship");
     l2.block(98, 0, 2, 3);
     l2.spike(98, 3);
@@ -838,7 +850,6 @@
     l2.block(154, 0, 2, 3);
     l2.block(163, 5, 2, 5);
 
-    // Mid Cube Orb Chain
     l2.portal(174, "cube");
     l2.spikes(184, 2);
     l2.pad(190, 0);
@@ -856,7 +867,6 @@
     l2.spikes(234, 5);
     l2.block(239, 4, 5, 1);
 
-    // Fast Ship 2
     l2.portal(250, "ship");
     l2.block(258, 0, 2, 3);
     l2.block(266, 6, 2, 4);
@@ -872,7 +882,7 @@
     l2.pad(322, 0);
     l2.spikes(324, 3);
 
-    // --- LEVEL 3: HYPERNOVA (Insane, 150 BPM) ---
+    // --- 3: HYPERNOVA (Insane, 150 BPM) ---
     const l3 = makeLevelBuilder();
     l3.spikes(14, 2);
     l3.orb(19, 2);
@@ -885,8 +895,6 @@
     l3.spikes(35, 5);
     l3.block(41, 1, 3, 1);
     l3.spike(42, 2);
-
-    // Rapid steps + pads
     l3.spikes(48, 2);
     l3.block(54, 0, 2, 1);
     l3.block(59, 1, 2, 1);
@@ -898,7 +906,6 @@
     l3.block(76, 3, 4, 1);
     l3.spike(78, 4);
 
-    // Ship Slalom
     l3.portal(86, "ship");
     l3.block(94, 0, 2, 3);
     l3.spike(94, 3);
@@ -915,7 +922,6 @@
     l3.block(167, 0, 2, 2);
     l3.block(167, 6, 2, 4);
 
-    // Double Orb Ascent
     l3.portal(178, "cube");
     l3.spikes(187, 2);
     l3.block(193, 0, 2, 1);
@@ -931,7 +937,6 @@
     l3.block(226, 3, 4, 1);
     l3.spikes(232, 3);
 
-    // High-Speed Finale Ship + Cube
     l3.portal(241, "ship");
     l3.block(249, 0, 2, 4);
     l3.block(257, 6, 2, 4);
@@ -951,6 +956,562 @@
     l3.spikes(335, 2);
     l3.pad(342, 0);
     l3.spikes(344, 3);
+
+    // --- 4: CANDY BOUNCE (Easy, 122 BPM) ---
+    const l4 = makeLevelBuilder();
+    l4.spike(16);
+    l4.spike(24);
+    l4.block(30, 0, 3, 1);
+    l4.pad(36, 0);
+    l4.spikes(38, 2);
+    l4.block(40, 2, 6, 1);
+    l4.pad(49, 0);
+    l4.block(53, 2, 4, 1);
+    l4.pad(56, 3);
+    l4.spikes(58, 2);
+    l4.block(61, 4, 5, 1);
+    l4.spike(71);
+    l4.spikes(78, 2);
+    l4.block(85, 0, 3, 1);
+    l4.block(91, 1, 3, 1);
+    l4.block(97, 2, 4, 1);
+    l4.spikes(102, 3);
+    l4.orb(103, 3);
+    l4.block(107, 0, 3, 1);
+
+    l4.portal(114, "ship");
+    l4.block(123, 0, 2, 2);
+    l4.block(133, 7, 2, 3);
+    l4.block(143, 0, 2, 3);
+    l4.block(153, 6, 2, 4);
+    l4.block(163, 2, 2, 2);
+    l4.block(174, 0, 2, 2);
+    l4.block(174, 8, 2, 2);
+
+    l4.portal(186, "cube");
+    l4.pad(196, 0);
+    l4.block(200, 2, 5, 1);
+    l4.spikes(206, 3);
+    l4.orb(207, 3);
+    l4.block(211, 1, 4, 1);
+    l4.spikes(219, 2);
+    l4.block(226, 0, 3, 1);
+    l4.pad(232, 0);
+    l4.block(236, 2, 5, 1);
+    l4.spikes(245, 2);
+    l4.spikes(253, 3);
+    l4.orb(254, 2);
+    l4.pad(262, 0);
+    l4.block(266, 2, 5, 1);
+    l4.spike(277);
+
+    // --- 5: CYBER OCEAN (Normal, 126 BPM) ---
+    const l5 = makeLevelBuilder();
+    l5.spike(16);
+    l5.block(23, 0, 2, 1);
+    l5.spikes(28, 2);
+    l5.pad(35, 0);
+    l5.block(39, 2, 4, 1);
+    l5.spikes(44, 3);
+    l5.orb(45, 3);
+    l5.block(49, 1, 3, 1);
+
+    l5.portal(58, "ship");
+    l5.block(67, 0, 2, 3);
+    l5.block(76, 6, 2, 4);
+    l5.block(85, 0, 2, 4);
+    l5.block(94, 5, 2, 5);
+    l5.block(104, 2, 3, 2);
+    l5.block(115, 0, 2, 2);
+    l5.block(115, 7, 2, 3);
+    l5.block(125, 0, 2, 3);
+    l5.block(134, 6, 2, 4);
+
+    l5.portal(145, "cube");
+    l5.spikes(155, 2);
+    l5.block(162, 0, 3, 1);
+    l5.block(168, 1, 3, 1);
+    l5.pad(174, 0);
+    l5.block(178, 2, 5, 1);
+    l5.spikes(186, 2);
+
+    l5.portal(194, "ship");
+    l5.block(203, 6, 2, 4);
+    l5.block(212, 0, 2, 3);
+    l5.block(221, 3, 2, 3);
+    l5.block(231, 0, 2, 2);
+    l5.block(231, 7, 2, 3);
+    l5.block(241, 6, 2, 4);
+    l5.block(250, 0, 2, 4);
+
+    l5.portal(261, "cube");
+    l5.spike(271);
+    l5.spikes(279, 3);
+    l5.orb(280, 2);
+    l5.block(286, 0, 3, 1);
+    l5.pad(293, 0);
+    l5.block(297, 2, 5, 1);
+    l5.spikes(305, 2);
+
+    // --- 6: LASER DISCO (Normal, 130 BPM) ---
+    const l6 = makeLevelBuilder();
+    l6.spike(15);
+    l6.spike(21);
+    l6.spikes(27, 2);
+    l6.block(34, 0, 2, 1);
+    l6.block(39, 1, 2, 1);
+    l6.block(44, 2, 3, 1);
+    l6.spikes(50, 3);
+    l6.orb(51, 3);
+    l6.block(55, 1, 4, 1);
+    l6.pad(58, 2);
+    l6.spikes(60, 4);
+    l6.block(64, 4, 4, 1);
+    l6.spikes(72, 2);
+    l6.pad(78, 0);
+    l6.block(82, 2, 4, 1);
+    l6.spikes(90, 3);
+    l6.orb(91, 2);
+
+    l6.portal(98, "ship");
+    l6.block(107, 0, 2, 3);
+    l6.block(116, 6, 2, 4);
+    l6.block(125, 0, 2, 4);
+    l6.block(134, 6, 2, 4);
+    l6.block(143, 2, 2, 2);
+    l6.block(152, 0, 2, 3);
+    l6.block(161, 5, 2, 5);
+    l6.block(170, 0, 2, 2);
+    l6.block(170, 7, 2, 3);
+
+    l6.portal(182, "cube");
+    l6.spikes(192, 2);
+    l6.block(199, 0, 4, 1);
+    l6.spike(201, 1);
+    l6.spikes(209, 3);
+    l6.orb(210, 2);
+    l6.pad(216, 0);
+    l6.block(220, 2, 5, 1);
+    l6.spikes(228, 2);
+    l6.block(235, 0, 2, 1);
+    l6.block(240, 1, 2, 1);
+    l6.pad(246, 0);
+    l6.block(250, 2, 4, 1);
+    l6.spikes(258, 2);
+
+    l6.portal(266, "ship");
+    l6.block(275, 0, 2, 3);
+    l6.block(284, 6, 2, 4);
+    l6.block(293, 0, 2, 3);
+    l6.block(293, 7, 2, 3);
+
+    l6.portal(304, "cube");
+    l6.spikes(314, 2);
+
+    // --- 7: STARLIGHT HOP (Hard, 134 BPM) ---
+    const l7 = makeLevelBuilder();
+    l7.spikes(15, 2);
+    l7.block(22, 0, 3, 1);
+    l7.spikes(26, 4);
+    l7.orb(28, 2);
+    l7.block(32, 1, 4, 1);
+    l7.pad(38, 0);
+    l7.block(42, 2, 6, 1);
+    l7.spike(45, 3);
+    l7.spikes(52, 3);
+    l7.orb(53, 2);
+    l7.block(59, 0, 2, 1);
+    l7.block(64, 1, 2, 1);
+    l7.block(69, 2, 3, 1);
+    l7.spikes(73, 7);
+    l7.orb(75, 3);
+    l7.orb(79, 3);
+
+    l7.portal(87, "ship");
+    l7.block(96, 0, 2, 3);
+    l7.spike(96, 3);
+    l7.block(105, 6, 2, 4);
+    l7.spike(105, 5, "down");
+    l7.block(114, 0, 2, 4);
+    l7.block(123, 5, 2, 5);
+    l7.block(133, 2, 2, 3);
+    l7.block(143, 0, 2, 3);
+    l7.block(143, 7, 2, 3);
+    l7.block(153, 6, 2, 4);
+    l7.block(162, 0, 2, 3);
+
+    l7.portal(173, "cube");
+    l7.spikes(183, 2);
+    l7.pad(189, 0);
+    l7.spikes(191, 4);
+    l7.block(194, 2, 5, 1);
+    l7.spikes(201, 5);
+    l7.orb(203, 3);
+    l7.block(209, 1, 5, 1);
+    l7.spike(212, 2);
+    l7.spikes(219, 2);
+    l7.pad(225, 0);
+    l7.block(230, 2, 4, 1);
+    l7.pad(233, 3);
+    l7.block(238, 4, 5, 1);
+    l7.orb(245, 4);
+    l7.block(249, 2, 4, 1);
+
+    l7.portal(258, "ship");
+    l7.block(267, 0, 2, 3);
+    l7.block(276, 6, 2, 4);
+    l7.block(285, 0, 2, 4);
+    l7.block(294, 6, 2, 4);
+    l7.block(303, 0, 2, 2);
+    l7.block(303, 6, 2, 4);
+
+    l7.portal(314, "cube");
+    l7.spikes(324, 2);
+    l7.pad(330, 0);
+    l7.spikes(332, 3);
+
+    // --- 8: MAGMA DASH (Hard, 140 BPM) ---
+    const l8 = makeLevelBuilder();
+    l8.spikes(15, 2);
+    l8.pad(22, 0);
+    l8.spikes(24, 3);
+    l8.block(27, 2, 4, 1);
+    l8.spikes(34, 2);
+    l8.block(40, 0, 3, 1);
+    l8.spike(41, 1);
+    l8.spikes(47, 4);
+    l8.orb(49, 2);
+    l8.block(55, 0, 2, 1);
+    l8.block(60, 1, 2, 1);
+    l8.pad(65, 0);
+    l8.spikes(67, 4);
+    l8.block(70, 2, 5, 1);
+    l8.spike(73, 3);
+
+    l8.portal(80, "ship");
+    l8.block(89, 0, 2, 3);
+    l8.spike(89, 3);
+    l8.block(98, 6, 2, 4);
+    l8.spike(98, 5, "down");
+    l8.block(107, 0, 2, 4);
+    l8.block(116, 5, 2, 5);
+    l8.block(125, 0, 2, 3);
+    l8.block(125, 7, 2, 3);
+    l8.block(135, 3, 3, 2);
+    l8.block(145, 0, 2, 4);
+    l8.block(154, 6, 2, 4);
+    l8.block(163, 0, 2, 3);
+    l8.spike(163, 3);
+
+    l8.portal(174, "cube");
+    l8.spikes(184, 2);
+    l8.spikes(191, 4);
+    l8.orb(193, 2);
+    l8.block(199, 0, 4, 1);
+    l8.spike(201, 1);
+    l8.pad(207, 0);
+    l8.spikes(209, 4);
+    l8.block(212, 2, 4, 1);
+    l8.spikes(218, 5);
+    l8.orb(220, 3);
+    l8.block(225, 1, 4, 1);
+    l8.spikes(234, 3);
+    l8.block(241, 0, 2, 1);
+    l8.pad(246, 0);
+    l8.spikes(248, 3);
+    l8.block(251, 2, 5, 1);
+
+    l8.portal(262, "ship");
+    l8.block(271, 0, 2, 4);
+    l8.block(280, 6, 2, 4);
+    l8.block(289, 0, 2, 3);
+    l8.block(289, 7, 2, 3);
+    l8.block(299, 5, 2, 5);
+    l8.block(308, 0, 2, 4);
+
+    l8.portal(319, "cube");
+    l8.spikes(328, 2);
+    l8.spikes(335, 4);
+    l8.orb(337, 2);
+
+    // --- 9: AURORA SKY (Hard, 142 BPM) ---
+    const l9 = makeLevelBuilder();
+    l9.spikes(15, 2);
+    l9.block(22, 0, 3, 1);
+    l9.block(27, 1, 3, 1);
+    l9.block(32, 2, 4, 1);
+    l9.spikes(38, 5);
+    l9.orb(40, 3);
+    l9.block(45, 1, 4, 1);
+    l9.pad(53, 0);
+    l9.spikes(55, 4);
+    l9.block(58, 2, 5, 1);
+    l9.spike(61, 3);
+    l9.spikes(67, 2);
+    l9.spikes(73, 4);
+    l9.orb(75, 2);
+    l9.block(80, 0, 3, 1);
+
+    l9.portal(88, "ship");
+    l9.block(97, 0, 2, 3);
+    l9.block(106, 6, 2, 4);
+    l9.block(115, 0, 2, 4);
+    l9.block(124, 5, 2, 5);
+    l9.block(133, 2, 2, 2);
+    l9.block(142, 0, 2, 2);
+    l9.block(142, 6, 2, 4);
+    l9.block(151, 0, 2, 3);
+    l9.block(160, 6, 2, 4);
+    l9.block(169, 2, 2, 3);
+
+    l9.portal(180, "cube");
+    l9.spikes(190, 2);
+    l9.pad(197, 0);
+    l9.spikes(199, 4);
+    l9.block(202, 2, 4, 1);
+    l9.pad(205, 3);
+    l9.block(210, 4, 5, 1);
+    l9.spikes(217, 6);
+    l9.orb(220, 4);
+    l9.block(224, 2, 4, 1);
+    l9.spikes(232, 2);
+    l9.block(239, 0, 2, 1);
+    l9.spikes(244, 4);
+    l9.orb(246, 2);
+    l9.pad(252, 0);
+    l9.spikes(254, 4);
+    l9.block(257, 2, 4, 1);
+
+    l9.portal(266, "ship");
+    l9.block(275, 0, 2, 3);
+    l9.spike(275, 3);
+    l9.block(284, 6, 2, 4);
+    l9.spike(284, 5, "down");
+    l9.block(293, 0, 2, 4);
+    l9.block(302, 6, 2, 4);
+    l9.block(311, 0, 2, 2);
+    l9.block(311, 6, 2, 4);
+
+    l9.portal(322, "cube");
+    l9.spikes(332, 2);
+    l9.pad(339, 0);
+    l9.spikes(341, 4);
+
+    // --- 10: THUNDERBOLT (Insane, 148 BPM) ---
+    const l10 = makeLevelBuilder();
+    l10.spikes(14, 2);
+    l10.spikes(21, 4);
+    l10.orb(23, 2);
+    l10.block(28, 0, 3, 1);
+    l10.pad(30, 1);
+    l10.spikes(32, 5);
+    l10.block(36, 3, 4, 1);
+    l10.spikes(42, 5);
+    l10.orb(44, 3);
+    l10.block(49, 1, 4, 1);
+    l10.spike(51, 2);
+    l10.spikes(57, 3);
+    l10.block(64, 0, 2, 1);
+    l10.block(69, 1, 2, 1);
+    l10.pad(74, 0);
+    l10.spikes(76, 4);
+    l10.block(79, 2, 4, 1);
+
+    l10.portal(88, "ship");
+    l10.block(97, 0, 2, 3);
+    l10.spike(97, 3);
+    l10.block(106, 5, 2, 5);
+    l10.spike(106, 4, "down");
+    l10.block(115, 0, 2, 4);
+    l10.block(124, 6, 2, 4);
+    l10.block(133, 0, 2, 3);
+    l10.block(133, 7, 2, 3);
+    l10.block(142, 3, 2, 2);
+    l10.block(151, 0, 2, 4);
+    l10.block(160, 6, 2, 4);
+    l10.block(169, 0, 2, 2);
+    l10.block(169, 6, 2, 4);
+
+    l10.portal(180, "cube");
+    l10.spikes(190, 2);
+    l10.spikes(197, 8);
+    l10.orb(199, 2);
+    l10.orb(203, 3);
+    l10.block(207, 2, 4, 1);
+    l10.spikes(213, 3);
+    l10.block(218, 0, 3, 1);
+    l10.pad(220, 1);
+    l10.spikes(222, 5);
+    l10.block(226, 3, 4, 1);
+    l10.spikes(231, 5);
+    l10.orb(232, 3);
+    l10.block(237, 1, 4, 1);
+    l10.spikes(245, 3);
+    l10.pad(252, 0);
+    l10.spikes(254, 4);
+    l10.block(257, 2, 4, 1);
+
+    l10.portal(266, "ship");
+    l10.block(275, 0, 2, 4);
+    l10.block(284, 6, 2, 4);
+    l10.block(293, 0, 2, 3);
+    l10.block(293, 7, 2, 3);
+    l10.block(302, 3, 2, 2);
+    l10.block(311, 6, 2, 4);
+    l10.block(320, 0, 2, 4);
+
+    l10.portal(331, "cube");
+    l10.spikes(340, 2);
+    l10.pad(347, 0);
+    l10.spikes(349, 4);
+    l10.spikes(355, 4);
+    l10.orb(357, 2);
+
+    // --- 11: PIXEL VORTEX (Insane, 154 BPM) ---
+    const l11 = makeLevelBuilder();
+    l11.spikes(14, 2);
+    l11.block(20, 0, 2, 1);
+    l11.spikes(25, 4);
+    l11.orb(27, 2);
+    l11.pad(31, 0);
+    l11.spikes(33, 5);
+    l11.block(37, 2, 4, 1);
+    l11.spikes(43, 5);
+    l11.orb(45, 3);
+    l11.block(49, 1, 3, 1);
+
+    l11.portal(56, "ship");
+    l11.block(65, 0, 2, 3);
+    l11.block(74, 6, 2, 4);
+    l11.block(83, 0, 2, 4);
+    l11.block(92, 5, 2, 5);
+    l11.block(101, 0, 2, 2);
+    l11.block(101, 6, 2, 4);
+
+    l11.portal(112, "cube");
+    l11.spikes(122, 3);
+    l11.block(129, 0, 3, 1);
+    l11.block(134, 1, 3, 1);
+    l11.pad(136, 2);
+    l11.spikes(138, 5);
+    l11.block(142, 4, 4, 1);
+    l11.spikes(147, 6);
+    l11.orb(150, 4);
+    l11.block(154, 2, 4, 1);
+    l11.spikes(160, 4);
+    l11.orb(162, 2);
+    l11.block(166, 0, 3, 1);
+
+    l11.portal(174, "ship");
+    l11.block(183, 0, 2, 4);
+    l11.spike(183, 4);
+    l11.block(192, 6, 2, 4);
+    l11.spike(192, 5, "down");
+    l11.block(201, 2, 2, 2);
+    l11.block(210, 0, 2, 3);
+    l11.block(210, 7, 2, 3);
+    l11.block(219, 5, 2, 5);
+    l11.block(228, 0, 2, 4);
+    l11.block(237, 6, 2, 4);
+    l11.block(246, 0, 2, 3);
+    l11.block(246, 7, 2, 3);
+
+    l11.portal(257, "cube");
+    l11.spikes(267, 3);
+    l11.pad(274, 0);
+    l11.spikes(276, 4);
+    l11.block(279, 2, 5, 1);
+    l11.spike(282, 3);
+    l11.spikes(287, 8);
+    l11.orb(289, 3);
+    l11.orb(293, 3);
+    l11.block(297, 2, 4, 1);
+    l11.spikes(304, 3);
+    l11.block(311, 0, 2, 1);
+    l11.pad(316, 0);
+    l11.spikes(318, 4);
+    l11.block(321, 2, 4, 1);
+
+    l11.portal(330, "ship");
+    l11.block(339, 0, 2, 3);
+    l11.block(348, 6, 2, 4);
+    l11.block(357, 0, 2, 3);
+    l11.block(357, 7, 2, 3);
+
+    l11.portal(366, "cube");
+
+    // --- 12: RAINBOW FINALE (Extreme, 160 BPM) ---
+    const l12 = makeLevelBuilder();
+    l12.spikes(15, 3);
+    l12.spikes(23, 5);
+    l12.orb(25, 2);
+    l12.block(30, 0, 3, 1);
+    l12.pad(32, 1);
+    l12.spikes(34, 6);
+    l12.block(39, 3, 4, 1);
+    l12.spikes(46, 6);
+    l12.orb(48, 3);
+    l12.block(54, 1, 4, 1);
+    l12.spike(56, 2);
+    l12.spikes(62, 3);
+    l12.block(69, 0, 2, 1);
+    l12.pad(75, 0);
+    l12.spikes(77, 5);
+    l12.block(81, 2, 5, 1);
+    l12.spike(84, 3);
+    l12.spikes(89, 9);
+    l12.orb(91, 3);
+    l12.orb(95, 3);
+    l12.block(100, 2, 4, 1);
+
+    l12.portal(108, "ship");
+    l12.block(117, 0, 2, 3);
+    l12.spike(117, 3);
+    l12.block(126, 5, 2, 5);
+    l12.spike(126, 4, "down");
+    l12.block(135, 0, 2, 4);
+    l12.block(144, 6, 2, 4);
+    l12.block(153, 2, 2, 2);
+    l12.block(162, 0, 2, 3);
+    l12.block(162, 7, 2, 3);
+    l12.block(172, 5, 2, 5);
+    l12.block(181, 0, 2, 4);
+    l12.block(190, 6, 2, 4);
+    l12.block(199, 0, 2, 2);
+    l12.block(199, 6, 2, 4);
+
+    l12.portal(210, "cube");
+    l12.spikes(220, 3);
+    l12.pad(227, 0);
+    l12.spikes(229, 5);
+    l12.block(233, 2, 4, 1);
+    l12.spikes(238, 5);
+    l12.orb(240, 3);
+    l12.block(245, 1, 4, 1);
+    l12.pad(251, 0);
+    l12.spikes(253, 5);
+    l12.block(257, 2, 5, 1);
+    l12.spike(260, 3);
+    l12.spikes(266, 9);
+    l12.orb(268, 3);
+    l12.orb(272, 4);
+    l12.block(277, 3, 4, 1);
+    l12.spikes(284, 3);
+    l12.block(291, 0, 3, 1);
+    l12.pad(297, 0);
+    l12.spikes(299, 4);
+
+    l12.portal(308, "ship");
+    l12.block(317, 0, 2, 4);
+    l12.block(326, 6, 2, 4);
+    l12.block(335, 0, 2, 3);
+    l12.block(335, 7, 2, 3);
+    l12.block(344, 3, 2, 2);
+    l12.block(353, 6, 2, 4);
+    l12.block(362, 0, 2, 4);
+
+    l12.portal(373, "cube");
+    l12.spikes(383, 3);
 
     return [
       {
@@ -1016,6 +1577,197 @@
           arp: [0, 3, 5, 7, 4, 2, 6, 5, 1, 4, 6, 7, 5, 3, 2, 4]
         },
         objects: l3.objects
+      },
+      {
+        id: "candy-bounce",
+        name: "Candy Bounce",
+        difficulty: "Easy",
+        badgeColor: "#80ed99",
+        speedMult: 0.94,
+        bpm: 122,
+        lengthCols: 290,
+        palettes: [
+          { bgTop: "#2a0e42", bgBot: "#6e1b6e", grid: "#ff70a6", accent: "#fee440", floor: "#280c3b" },
+          { bgTop: "#0b2e47", bgBot: "#12687a", grid: "#70d6ff", accent: "#80ed99", floor: "#082538" },
+          { bgTop: "#2b2109", bgBot: "#6b4f0b", grid: "#ffd166", accent: "#ff70a6", floor: "#241b06" }
+        ],
+        song: {
+          chords: [60, 67, 69, 65],
+          scale: [0, 4, 7, 9, 12, 16, 19],
+          leadWave: "triangle",
+          arp: [0, null, 2, null, 4, 2, 1, null, 0, null, 3, 5, 4, null, 2, null]
+        },
+        objects: l4.objects
+      },
+      {
+        id: "cyber-ocean",
+        name: "Cyber Ocean",
+        difficulty: "Normal",
+        badgeColor: "#00f5d4",
+        speedMult: 1.0,
+        bpm: 126,
+        lengthCols: 318,
+        palettes: [
+          { bgTop: "#031a30", bgBot: "#084c61", grid: "#00f5d4", accent: "#70d6ff", floor: "#021526" },
+          { bgTop: "#062b26", bgBot: "#0e6b5c", grid: "#80ed99", accent: "#00bbf9", floor: "#04211d" },
+          { bgTop: "#141442", bgBot: "#292e78", grid: "#70d6ff", accent: "#ff70a6", floor: "#101038" }
+        ],
+        song: {
+          chords: [57, 53, 55, 52],
+          scale: [0, 3, 7, 10, 12, 14, 15],
+          leadWave: "sine",
+          arp: [0, 2, 4, 5, null, 4, 2, 0, 1, 3, 5, 6, null, 4, 3, 2]
+        },
+        objects: l5.objects
+      },
+      {
+        id: "laser-disco",
+        name: "Laser Disco",
+        difficulty: "Normal",
+        badgeColor: "#00f5d4",
+        speedMult: 1.05,
+        bpm: 130,
+        lengthCols: 328,
+        palettes: [
+          { bgTop: "#1f083b", bgBot: "#561175", grid: "#f15bb5", accent: "#00bbf9", floor: "#18062e" },
+          { bgTop: "#091845", bgBot: "#123b87", grid: "#fee440", accent: "#f15bb5", floor: "#071236" },
+          { bgTop: "#2b0929", bgBot: "#6b125a", grid: "#00f5d4", accent: "#fee440", floor: "#210720" }
+        ],
+        song: {
+          chords: [59, 55, 57, 54],
+          scale: [0, 3, 5, 7, 10, 12, 15],
+          leadWave: "triangle",
+          arp: [0, 4, 2, 5, 0, 4, 6, null, 1, 5, 3, 6, 2, 4, 5, 3]
+        },
+        objects: l6.objects
+      },
+      {
+        id: "starlight-hop",
+        name: "Starlight Hop",
+        difficulty: "Hard",
+        badgeColor: "#ff9f1c",
+        speedMult: 1.12,
+        bpm: 134,
+        lengthCols: 344,
+        palettes: [
+          { bgTop: "#0a0a2e", bgBot: "#1e1b63", grid: "#fee440", accent: "#00f5d4", floor: "#080824" },
+          { bgTop: "#1d0b3b", bgBot: "#481c7a", grid: "#70d6ff", accent: "#fee440", floor: "#16082e" },
+          { bgTop: "#082436", bgBot: "#10546b", grid: "#00f5d4", accent: "#c77dff", floor: "#061c2b" }
+        ],
+        song: {
+          chords: [65, 60, 62, 58],
+          scale: [0, 4, 7, 11, 12, 16, 19],
+          leadWave: "triangle",
+          arp: [0, 2, 4, 6, 4, 2, 5, null, 1, 3, 5, 6, 4, 2, 3, 1]
+        },
+        objects: l7.objects
+      },
+      {
+        id: "magma-dash",
+        name: "Magma Dash",
+        difficulty: "Hard",
+        badgeColor: "#ff9f1c",
+        speedMult: 1.18,
+        bpm: 140,
+        lengthCols: 350,
+        palettes: [
+          { bgTop: "#2b0505", bgBot: "#73110b", grid: "#ff5400", accent: "#fee440", floor: "#210404" },
+          { bgTop: "#360d04", bgBot: "#822709", grid: "#ffbd00", accent: "#ff2a85", floor: "#290903" },
+          { bgTop: "#24041a", bgBot: "#610b3a", grid: "#ff2a85", accent: "#ff9f1c", floor: "#1c0314" }
+        ],
+        song: {
+          chords: [57, 58, 55, 53],
+          scale: [0, 1, 4, 7, 8, 12, 13],
+          leadWave: "sawtooth",
+          arp: [0, 3, 4, 6, 5, 3, 2, 1, 0, 4, 5, 6, 3, 2, 4, 1]
+        },
+        objects: l8.objects
+      },
+      {
+        id: "aurora-sky",
+        name: "Aurora Sky",
+        difficulty: "Hard",
+        badgeColor: "#ff9f1c",
+        speedMult: 1.22,
+        bpm: 142,
+        lengthCols: 356,
+        palettes: [
+          { bgTop: "#052422", bgBot: "#0c5c50", grid: "#00f5d4", accent: "#80ed99", floor: "#031c1a" },
+          { bgTop: "#130b38", bgBot: "#2c1e75", grid: "#c77dff", accent: "#00f5d4", floor: "#0e082b" },
+          { bgTop: "#081c3b", bgBot: "#124b7a", grid: "#70d6ff", accent: "#80ed99", floor: "#05142b" }
+        ],
+        song: {
+          chords: [62, 65, 67, 64],
+          scale: [0, 3, 7, 10, 12, 15, 17],
+          leadWave: "triangle",
+          arp: [0, 2, 5, 4, 6, 4, 2, 3, 1, 4, 6, 5, 3, 2, 4, null]
+        },
+        objects: l9.objects
+      },
+      {
+        id: "thunderbolt",
+        name: "Thunderbolt",
+        difficulty: "Insane",
+        badgeColor: "#ff2a85",
+        speedMult: 1.28,
+        bpm: 148,
+        lengthCols: 368,
+        palettes: [
+          { bgTop: "#170b3b", bgBot: "#361c7a", grid: "#fee440", accent: "#00bbf9", floor: "#11082e" },
+          { bgTop: "#06173d", bgBot: "#0f3a85", grid: "#00f5d4", accent: "#fee440", floor: "#04112e" },
+          { bgTop: "#291404", bgBot: "#66360a", grid: "#fee440", accent: "#ff2a85", floor: "#1f0f03" }
+        ],
+        song: {
+          chords: [64, 62, 60, 59],
+          scale: [0, 3, 5, 6, 7, 10, 12, 15],
+          leadWave: "sawtooth",
+          arp: [0, 4, 6, 7, 5, 3, 4, 2, 0, 5, 7, 6, 4, 2, 3, 1]
+        },
+        objects: l10.objects
+      },
+      {
+        id: "pixel-vortex",
+        name: "Pixel Vortex",
+        difficulty: "Insane",
+        badgeColor: "#ff2a85",
+        speedMult: 1.34,
+        bpm: 154,
+        lengthCols: 378,
+        palettes: [
+          { bgTop: "#092616", bgBot: "#125c31", grid: "#80ed99", accent: "#ff2a85", floor: "#061c10" },
+          { bgTop: "#290726", bgBot: "#66125c", grid: "#ff2a85", accent: "#00f5d4", floor: "#1f051c" },
+          { bgTop: "#061e36", bgBot: "#0e4d7a", grid: "#00f5d4", accent: "#80ed99", floor: "#041526" }
+        ],
+        song: {
+          chords: [61, 58, 63, 60],
+          scale: [0, 2, 5, 7, 9, 12, 14, 17],
+          leadWave: "square",
+          arp: [0, 5, 3, 6, 2, 7, 4, 5, 1, 6, 4, 7, 3, 5, 2, 4]
+        },
+        objects: l11.objects
+      },
+      {
+        id: "rainbow-finale",
+        name: "Rainbow Finale",
+        difficulty: "Extreme",
+        badgeColor: "#c77dff",
+        speedMult: 1.4,
+        bpm: 160,
+        lengthCols: 398,
+        palettes: [
+          { bgTop: "#38051a", bgBot: "#780b37", grid: "#ff2a85", accent: "#fee440", floor: "#2b0414" },
+          { bgTop: "#2e1a04", bgBot: "#754308", grid: "#ff9f1c", accent: "#00f5d4", floor: "#241403" },
+          { bgTop: "#072b19", bgBot: "#0f663a", grid: "#80ed99", accent: "#ff2a85", floor: "#052113" },
+          { bgTop: "#071b3d", bgBot: "#0e428a", grid: "#00bbf9", accent: "#fee440", floor: "#05142e" },
+          { bgTop: "#21073b", bgBot: "#511285", grid: "#c77dff", accent: "#00f5d4", floor: "#18052b" }
+        ],
+        song: {
+          chords: [65, 63, 61, 60],
+          scale: [0, 2, 4, 7, 9, 12, 14, 16],
+          leadWave: "sawtooth",
+          arp: [0, 3, 5, 7, 6, 4, 2, 5, 1, 4, 6, 7, 5, 3, 6, 4]
+        },
+        objects: l12.objects
       }
     ];
   }
@@ -1043,17 +1795,15 @@
   let level = LEVELS[0];
   let levelEndX = level.lengthCols * TILE;
 
-  // Input state
   let inputHeld = false;
   let jumpBufferTimer = 0;
 
-  // Player & World state
   const player = {
     x: 0,
     y: GROUND_Y - PLAYER_SIZE,
     vy: 0,
     rot: 0,
-    mode: "cube", // "cube" | "ship"
+    mode: "cube",
     onGround: true,
     trail: []
   };
@@ -1091,15 +1841,22 @@
   function renderLevelCards() {
     const grid = document.getElementById("levelsGrid");
     grid.innerHTML = "";
+    let clearedCount = 0;
+
     LEVELS.forEach((lvl, idx) => {
       const best = save.best[lvl.id] || 0;
       const pBest = save.practiceBest[lvl.id] || 0;
+      if (best >= 100) clearedCount++;
+
       const card = document.createElement("div");
       card.className = "level-card" + (idx === selectedLevelIdx ? " selected" : "");
       card.innerHTML = `
-        <span class="level-badge" style="background:${lvl.badgeColor}22;color:${lvl.badgeColor};border:1px solid ${lvl.badgeColor}66;">
-          ${lvl.difficulty} • ${lvl.bpm} BPM
-        </span>
+        <div class="level-top">
+          <span class="level-num">#${idx + 1}</span>
+          <span class="level-badge" style="background:${lvl.badgeColor}22;color:${lvl.badgeColor};border:1px solid ${lvl.badgeColor}66;">
+            ${lvl.difficulty} • ${lvl.bpm} BPM
+          </span>
+        </div>
         <div class="level-name">${lvl.name}</div>
         <div class="level-meta">${lvl.speedMult}x Speed • ${Math.round((lvl.lengthCols * TILE) / (BASE_SPEED * lvl.speedMult))}s</div>
         <div class="mini-bar">
@@ -1116,6 +1873,9 @@
       });
       grid.appendChild(card);
     });
+
+    document.getElementById("menuSubtitle").textContent =
+      `${LEVELS.length} Colorful Levels • Cleared: ${clearedCount} / ${LEVELS.length} ★`;
   }
 
   function renderSkinPreview() {
@@ -1182,8 +1942,12 @@
   });
 
   document.getElementById("btnModalPrimary").addEventListener("click", () => {
-    if (gameState === "paused") resumeGame();
-    else if (gameState === "won") startLevel(selectedLevelIdx);
+    if (gameState === "paused") {
+      resumeGame();
+    } else if (gameState === "won") {
+      if (selectedLevelIdx < LEVELS.length - 1) startLevel(selectedLevelIdx + 1);
+      else startLevel(selectedLevelIdx);
+    }
   });
 
   document.getElementById("btnModalRestart").addEventListener("click", () => {
@@ -1242,7 +2006,7 @@
     autoCpTimer = 0;
     jumpBufferTimer = 0;
     lastAudioStep = Math.floor(levelTime / (60 / level.bpm / 4));
-    hudLevelInfo.textContent = `${level.name} • Attempt #${attempts}`;
+    hudLevelInfo.textContent = `#${selectedLevelIdx + 1} ${level.name} • Attempt #${attempts}`;
   }
 
   function dropCheckpoint() {
@@ -1268,10 +2032,11 @@
     gameState = "paused";
     inputHeld = false;
     document.getElementById("modalTitle").textContent = "PAUSED";
-    document.getElementById("modalBody").textContent = `${level.name} (${level.difficulty})`;
+    document.getElementById("modalBody").textContent = `#${selectedLevelIdx + 1} ${level.name} (${level.difficulty})`;
     const pct = Math.min(100, Math.floor((player.x / levelEndX) * 100));
     document.getElementById("modalStats").textContent = `Progress: ${pct}% • Attempt #${attempts}`;
     document.getElementById("btnModalPrimary").textContent = "▶ Resume";
+    document.getElementById("btnModalRestart").textContent = "↻ Restart";
     modalOverlay.classList.remove("hidden");
   }
 
@@ -1327,10 +2092,12 @@
     progressText.textContent = "100%";
     document.getElementById("modalTitle").textContent = "LEVEL COMPLETE!";
     document.getElementById("modalBody").textContent = practiceMode
-      ? `Cleared ${level.name} in Practice Mode! Try Normal Mode for the crown!`
-      : `You conquered ${level.name}!`;
+      ? `Cleared ${level.name} in Practice Mode! Try Normal Mode for the ★!`
+      : `You conquered #${selectedLevelIdx + 1} ${level.name}!`;
     document.getElementById("modalStats").textContent = `Attempts: ${attempts} • Time: ${levelTime.toFixed(1)}s`;
-    document.getElementById("btnModalPrimary").textContent = "↻ Play Again";
+    const hasNext = selectedLevelIdx < LEVELS.length - 1;
+    document.getElementById("btnModalPrimary").textContent = hasNext ? "▶ Next Level" : "↻ Play Again";
+    document.getElementById("btnModalRestart").textContent = "↻ Replay";
     setTimeout(() => {
       if (gameState === "won") modalOverlay.classList.remove("hidden");
     }, 550);
@@ -1432,8 +2199,7 @@
     levelTime += dt;
     const speed = BASE_SPEED * level.speedMult;
 
-    // Beat-synced Web Audio scheduler (lookahead 100ms)
-    const stepDur = 60 / level.bpm / 4; // 16th note
+    const stepDur = 60 / level.bpm / 4;
     const targetStep = Math.floor((levelTime + 0.08) / stepDur);
     while (lastAudioStep < targetStep) {
       lastAudioStep++;
@@ -1450,10 +2216,8 @@
     const prevRight = prevX + PLAYER_SIZE;
     const prevBottom = prevY + PLAYER_SIZE;
 
-    // Horizontal movement
     player.x += speed * dt;
 
-    // Vertical movement
     if (player.mode === "cube") {
       if (player.onGround && (inputHeld || jumpBufferTimer > 0)) {
         player.vy = JUMP_VY;
@@ -1467,12 +2231,10 @@
       if (!player.onGround) {
         player.rot += 6.6 * dt;
       } else {
-        // Snap smoothly to nearest 90 degrees
         const snap = Math.round(player.rot / (Math.PI / 2)) * (Math.PI / 2);
         player.rot += (snap - player.rot) * Math.min(1, 24 * dt);
       }
     } else {
-      // Ship mode
       player.vy += (inputHeld ? SHIP_THRUST : SHIP_GRAVITY) * dt;
       player.vy = Math.max(-SHIP_MAX_VY, Math.min(SHIP_MAX_VY, player.vy));
       player.y += player.vy * dt;
@@ -1481,7 +2243,6 @@
 
     player.onGround = false;
 
-    // Floor & Ceiling constraints
     if (player.y + PLAYER_SIZE >= GROUND_Y) {
       player.y = GROUND_Y - PLAYER_SIZE;
       player.vy = 0;
@@ -1492,10 +2253,9 @@
       if (player.vy < 0) player.vy = 0;
     }
 
-    // Object collisions (query nearby range)
     const minX = player.x - 90;
     const maxX = player.x + PLAYER_SIZE + 90;
-    const hbPad = 7; // Forgiving inner cube hitbox
+    const hbPad = 7;
 
     for (let i = 0; i < level.objects.length; i++) {
       const o = level.objects[i];
@@ -1503,13 +2263,11 @@
 
       if (o.type === "block") {
         if (rectsOverlap(player.x, player.y, PLAYER_SIZE, PLAYER_SIZE, o.x, o.y, o.w, o.h)) {
-          // Land on top
           if (prevBottom <= o.y + 13 && player.vy >= -40) {
             player.y = o.y - PLAYER_SIZE;
             player.vy = 0;
             player.onGround = true;
           } else if (player.mode === "ship" && prevY >= o.y + o.h - 13 && player.vy <= 40) {
-            // Ship ceiling bump on block underside
             player.y = o.y + o.h;
             player.vy = 0;
           } else if (prevRight <= o.x + 18 || player.y + PLAYER_SIZE - 10 > o.y) {
@@ -1518,7 +2276,6 @@
           }
         }
       } else if (o.type === "spike") {
-        // Forgiving triangle hitbox
         const sx = o.x + 17;
         const sw = 16;
         const sh = 28;
@@ -1558,7 +2315,6 @@
       }
     }
 
-    // Trail & Practice auto-checkpoint
     player.trail.push({ x: player.x + 10, y: player.y + PLAYER_SIZE / 2, mode: player.mode });
     if (player.trail.length > 18) player.trail.shift();
 
@@ -1627,12 +2383,10 @@
     c.shadowBlur = 0;
     c.stroke();
 
-    // Inner frame
     c.strokeStyle = "rgba(8, 8, 24, 0.45)";
     c.lineWidth = 2;
     c.strokeRect(-half + 6, -half + 6, size - 12, size - 12);
 
-    // Face details
     c.fillStyle = "#0a0820";
     if (face === "classic") {
       c.fillRect(-10, -8, 7, 7);
@@ -1670,7 +2424,6 @@
     c.translate(cx, cy);
     c.rotate(rot);
 
-    // Ship hull
     c.shadowColor = skin.glow;
     c.shadowBlur = 16;
     c.fillStyle = skin.secondary;
@@ -1688,7 +2441,6 @@
     c.shadowBlur = 0;
     c.stroke();
 
-    // Mini cube pilot
     drawCubeSprite(c, -2, -10, 26, 0, skin, face);
     c.restore();
   }
@@ -1702,7 +2454,6 @@
       ctx.translate((Math.random() - 0.5) * mag, (Math.random() - 0.5) * mag);
     }
 
-    // Background sky gradient + beat pulse brightening
     const sky = ctx.createLinearGradient(0, 0, 0, VH);
     sky.addColorStop(0, pal.bgTop);
     sky.addColorStop(1, pal.bgBot);
@@ -1716,7 +2467,6 @@
       ctx.globalAlpha = 1;
     }
 
-    // Parallax geometric shapes
     for (let i = 0; i < bgShapes.length; i++) {
       const s = bgShapes[i];
       const sx = ((s.x - cameraX * s.speed) % (VW + 300) + (VW + 300)) % (VW + 300) - 150;
@@ -1741,7 +2491,6 @@
       ctx.restore();
     }
 
-    // Ship mode ceiling
     if (player.mode === "ship") {
       ctx.fillStyle = pal.floor;
       ctx.fillRect(0, 0, VW, CEILING_Y);
@@ -1753,11 +2502,9 @@
       ctx.stroke();
     }
 
-    // World space rendering
     ctx.save();
     ctx.translate(-cameraX, 0);
 
-    // Practice Checkpoints
     if (practiceMode) {
       for (let i = 0; i < checkpoints.length; i++) {
         const cp = checkpoints[i];
@@ -1776,7 +2523,6 @@
       }
     }
 
-    // Finish Goal Gate
     if (levelEndX > cameraX - 100 && levelEndX < cameraX + VW + 150) {
       const g = ctx.createLinearGradient(levelEndX, 0, levelEndX + 40, 0);
       g.addColorStop(0, "rgba(0, 245, 212, 0.85)");
@@ -1791,7 +2537,6 @@
       ctx.stroke();
     }
 
-    // Visible Obstacles
     const visLeft = cameraX - 100;
     const visRight = cameraX + VW + 100;
 
@@ -1869,7 +2614,6 @@
       }
     }
 
-    // Player trail
     const skin = SKINS[save.skinIdx];
     for (let i = 0; i < player.trail.length; i++) {
       const tr = player.trail[i];
@@ -1881,7 +2625,6 @@
     }
     ctx.globalAlpha = 1;
 
-    // Player sprite
     if (gameState !== "dead") {
       const cx = player.x + PLAYER_SIZE / 2;
       const cy = player.y + PLAYER_SIZE / 2;
@@ -1892,7 +2635,6 @@
       }
     }
 
-    // Particles
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
       ctx.globalAlpha = Math.max(0, p.life / p.maxLife);
@@ -1901,9 +2643,8 @@
     }
     ctx.globalAlpha = 1;
 
-    ctx.restore(); // end world space
+    ctx.restore();
 
-    // Scrolling neon ground floor
     ctx.fillStyle = pal.floor;
     ctx.fillRect(0, GROUND_Y, VW, VH - GROUND_Y);
 
@@ -1925,7 +2666,6 @@
     }
     ctx.globalAlpha = 1;
 
-    // Glowing horizon line
     ctx.shadowColor = pal.accent;
     ctx.shadowBlur = 14;
     ctx.strokeStyle = "#ffffff";
@@ -1984,7 +2724,6 @@
     requestAnimationFrame(tick);
   }
 
-  // Init
   renderLevelCards();
   renderSkinPreview();
   updateMuteButtons();
